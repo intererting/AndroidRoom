@@ -18,7 +18,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+                arg("room.incremental", "true")
+            }
+        }
     }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -42,6 +51,6 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android"
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 }
